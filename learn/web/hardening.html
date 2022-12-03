@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <title>Track The Eye</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Rebirth of personal websites.">
+        <meta name="keywords" content="web">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../styles.css">
+        <link rel="icon" type="image/x-icon" href="../../img/trippy.gif">
+    </head>
+    <body>
+        <noscript>Good job! You've disabled javascript. <img src="../../img/nojs.gif" /></noscript>
+        
+        <h1>Track the eye</h1>
+        <hr/>
+        <nav>
+            <a href="../../index.html">&lt;HOME&gt;</a>
+            <a href="../../articles/index.html">&lt;ARTICLES&gt;</a>
+            <a href="../index.html">&lt;TUTORIALS&gt;</a>
+            <a href="../../about.html">&lt;ABOUT&gt;</a>
+        </nav>
+        <hr/>
+        <br/>
+        <div>
+            <h2 style="text-align: center; vertical-align: middle;">Browser Hardening, making your browsers safer. <br/>
+                <small class="req">UNFINISHED</small></h2>
+            
+            <br/>
+
+            <p>Each browser has it's own flaws, firefox has it's tracking and buggy "modern" UI, ungoogled chromium is difficult to keep up to date, etc.</p>
+            <p>Even the "good" browsers like IceCat suffer from issues, e.g. bad and buggy UI.</p>
+            <b>In this guide I'll demonstrate on how to fix as many of the issues that each browser has, while also making it more privacy-respecting.</b>
+            
+            <br/>
+
+            <div class="chapters">
+                <h2>Chapters</h2>
+                <hr/>
+                <a href="#firefox" style="color: white; text-decoration: none;">Firefox Hardening</a>
+                <br/><br/>
+                <a href="#palemoon" style="color: white; text-decoration: none;">PaleMoon Hardening</a>
+                <br/><br/>
+                <a href="#basilisk" style="color: white; text-decoration: none;">Basilisk Hardening</a> <small class="req">Soon</small>
+            </div>
+
+            <br/><br/>
+            <hr/>
+            <br/><br/>
+
+            <section id="firefox" name="firefox" style="vertical-align: middle; text-align: center; margin-right: auto; margin-left: auto;">
+                
+                <img src="../../img/firefox.png" />
+                <h2 style="text-align: center;">Firefox Hardening</h2>
+                <p>Firefox is one of the most popular browsers, but it is not very privacy-respecting by default.</p>
+                <br/>
+                <p>When following this quide <span class="req">it is recommended to turn off internet to prevent firefox from phoning home.</span></p>
+                <br/>
+                <p>First of all create a new profile:
+                    <code>firefox -no-remote -ProfileManager</code>
+                    <br/>
+                    and exit.
+                </p>
+                <p>Then open your Firefox user profile directory, locations varies according to operating system.</p>
+                <table>
+					<tbody><tr>
+                        <th>OS</th>
+                        <th>Path</th>
+                    </tr>
+                    <tr>
+                        <td>Windows 7+</td>
+                        <td><code>%APPDATA%\Mozilla\Firefox\Profiles\XXXXXXXX.your_profile_name</code></td>
+                    </tr>
+                    <tr>
+                        <td> GNU/Linux </td>
+                            <td><code>~/.mozilla/firefox/XXXXXXXX.your_profile_name</code></td>
+                        </tr>
+                        <tr>
+                            <td> OS X</td>
+                            <td><code>~/Library/Application Support/Firefox/Profiles/XXXXXXXX.your_profile_name</code></td>
+                        </tr>
+                        <tr>
+                            <td> Android</td>
+                            <td><code>/data/data/org.mozilla.firefox/files/mozilla/XXXXXXXX.your_profile_name</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="req">Delete everything from your new profile.</p>
+                <br/>
+                <p>Afterwards, go to <a href="https://ffprofile.com" class="ca">ffprofile.com</a> and create the profile configuration as you like.</p>
+                <p>Once you are done with the profile, unzip the file in the folder of the new profile and open firefox.</p>
+
+            </section>
+
+            <br/>
+            <hr/>
+            <br/>
+
+            <section id="palemoon" name="palemoon" style="vertical-align: middle; text-align: center; margin-right: auto; margin-left: auto;">
+
+                <img src="../../img/palemoon.png" />
+                <h2 style="text-align: center;">PaleMoon Hardening</h2>
+                <p>When following this quide <span class="req">it is recommended to turn off internet to prevent palemoon from phoning home.</span></p>
+
+                <p>This is much easier to harden than firefox, because palemoon is much more secure by default.</p>
+                <p>First of all,
+                    Disable updates and replace the home page to something else.
+                </p>
+                <br/>
+                <p>Then go in about:config and set these options: </p>
+                <table>
+
+  <tbody><tr>
+    <th>Privacy Concerning Feature</th>
+    <th>Flag</th>
+    <th>Value</th>
+    </tr>
+    <tr>
+    <td>Addon Blocklist</td>
+    <td>extensions.blocklist.enabled</td>
+    <td>False</td>
+    </tr>
+    <tr>
+    <td>OCSP querying</td>
+    <td>services.sync.prefs.sync.security.OCSP.enabled</td>
+    <td>False</td>
+    </tr>
+    <tr>
+    <td>OCSP querying</td>
+    <td>security.OCSP.GET.enabled</td>
+    <td>False</td>
+    </tr>
+     <tr>
+    <td>OCSP querying</td>
+    <td>security.OCSP.require</td>
+    <td>False</td>
+    </tr>
+       <tr>
+    <td>OCSP querying</td>
+    <td>security.OCSP.enabled</td>
+    <td>0</td>
+    </tr>
+       <tr>
+    <td>Geolocation</td>
+    <td>geo.enabled</td>
+    <td>False</td>
+    </tr>
+    </tbody>
+                </table>
+            
+            </section>
+        </div>
+    </body>
+</html>
